@@ -24,11 +24,11 @@ void GenerateFirstRow()
 	{
 		map[0][i + 1] = FirstRow[i];
 	}
-	if (next_permutation(FirstRow, FirstRow + 8))
+	while (next_permutation(FirstRow, FirstRow + 8))
 	{
-		for (int i = 0; i < 8; i++)
-			FirstRow[8] = i;
-	}
+		break;
+	} 
+	
 
 }
 
@@ -69,7 +69,6 @@ bool Generate(int Row, int Col)
 	int NextCol;
 	stack<int> s;
 	int buffer[9];
-	srand((unsigned)time(NULL));
 	for (int i = 0; i < 9; i++) {
 		buffer[i] = 1 + rand() % 9;
 		for (int j = 0; j < i; j++)
@@ -109,30 +108,13 @@ bool Generate(int Row, int Col)
 	return true;
 }
 
-void Output()
+void GenerateSudoku(int num)
 {
-	for (int i = 0; i < 9; i++)
-	{
-		for (int j = 0; j < 9; j++)
-			cout << map[i][j] << " ";
-		cout << endl;
-	}
-	cout << endl;
-}
-
-
-
-int main()
-{
-	clock_t startTime, endTime;
-	startTime = clock();
 	FILE *fp = fopen("sudoku.txt", "w+");
-	for (int count = 1; count <= 3; count++)
+	for (int count = 1; count <= num; count++)
 	{
 		GenerateFirstRow();
 		Generate(1, 0);
-		//Output();
-
 		for (int i = 0; i < 9; i++)
 		{
 			for (int j = 0; j < 9; j++)
@@ -144,12 +126,47 @@ int main()
 			fputc('\n', fp);
 
 		}
-		fputc('\n', fp);
+		
 	}
 	fclose(fp);
+}
+
+void SolvingSudoku(char* absolute_path)
+{
+
+}
+
+
+int main(int argc, char *argv[])
+{
+	clock_t startTime, endTime;
+	startTime = clock();
+	srand((unsigned)time(NULL));
+
+
+
+
+	if (argc != 3)
+		cout << "参数错误" << endl;
+	else
+	{
+		if (argv[1][1] == 'c'){
+			int N = atoi(argv[2]);
+			if (N == 0)
+				cout << "参数错误" << endl;
+			else
+				GenerateSudoku(N);
+		}
+		else {
+			SolvingSudoku(argv[2]);
+		}
+		
+	}
+
+
+
 	endTime = clock();
 	cout << (double)(endTime - startTime) / CLOCKS_PER_SEC << "s" << endl;
-	system("pause");
 }
 
 
