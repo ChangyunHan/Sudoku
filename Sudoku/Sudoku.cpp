@@ -142,7 +142,7 @@ void GenerateSudoku(int num)
 	求解数独部分
 */
 
-int N;		//记录需要填数（也就是0）的个数
+int N;					//记录需要填数（也就是0）的个数
 int address[81][2];		//记录每个空白的位置（行数和列数
 bool inf[81][9];		//记录每个空白可以填的数
 
@@ -250,7 +250,7 @@ void SolvingSudoku(char path[])
 		}
 		Pretreatment();
 		if (!Solving(N))
-			fprintf(answer, "Solving Sudoku failed\n");
+			fprintf(answer, "\n");
 		else {
 			
 			for (int i = 0; i < 9; i++)
@@ -259,7 +259,7 @@ void SolvingSudoku(char path[])
 				{
 					if (!Check_2(i, j))
 					{
-						fprintf(answer, "Solving Sudoku failed1\n");
+						fprintf(answer, "\n");
 						return;
 					}
 				}
@@ -323,7 +323,6 @@ int main(int argc, char *argv[])
 				{
 					path[n++] = argv[2][i];
 				}
-
 			}
 			SolvingSudoku(path);
 		}
