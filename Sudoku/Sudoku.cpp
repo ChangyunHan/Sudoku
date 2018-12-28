@@ -301,7 +301,7 @@ int main(int argc, char *argv[])
 
 
 
-	/*if (argc != 3)
+	if (argc != 3)
 		cout << "参数错误" << endl;
 	else
 	{
@@ -333,11 +333,11 @@ int main(int argc, char *argv[])
 			}
 			SolvingSudoku(path);
 		}
-	}*/
+	}
 	
 
-	char c[] = { "C:\\Users\\韩昌云\\Desktop\\新建文件夹\\problems.txt" };	
-	SolvingSudoku(c);
+	/*char c[] = { "C:\\Users\\韩昌云\\Desktop\\新建文件夹\\problems.txt" };	
+	SolvingSudoku(c);*/
 	/*GenerateSudoku(10000);*/
 
 	/*endTime = clock();
