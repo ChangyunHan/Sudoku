@@ -1,0 +1,8 @@
+Sudoku.exe -c 0
+Sudoku.exe -c 1
+Sudoku.exe -c 100
+Sudoku.exe -c  10000
+Sudoku.exe -c 1000000
+Sudoku.exe -s aaa\ss\b
+Sudoku.exe -s nsnkafmlkm
+Sudoku.exe -s C:\Users\韩昌云\Desktop\新建文件夹\problems.txt
