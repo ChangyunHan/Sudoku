@@ -219,13 +219,14 @@ bool Solving(int count)
 		if (inf[n][j])
 		{
 			map[address[n][0]][address[n][1]] = j + 1;
-			if (Check_2(address[n][0], address[n][1]))
+			if (Check(address[n][0], address[n][1]))
 			{
 				if(Solving(count-1))
 				return true;
 			}
 		}
 	}
+	map[address[n][0]][address[n][1]] = 0;
 	return false;
 }
 
@@ -250,8 +251,11 @@ void SolvingSudoku(char path[])
 		}
 		Pretreatment();
 		if (!Solving(N))
-			fprintf(answer, "\n");
-		else {
+		{
+			fprintf(answer, "Solving sudoku failed\n");
+		}			
+		else 
+		{
 			
 			for (int i = 0; i < 9; i++)
 			{
@@ -259,8 +263,9 @@ void SolvingSudoku(char path[])
 				{
 					if (!Check_2(i, j))
 					{
-						fprintf(answer, "\n");
-						return;
+						fprintf(answer, "Solving sudoku failed\n");
+						i = 9;;
+						break;
 					}
 				}
 			}
@@ -269,7 +274,9 @@ void SolvingSudoku(char path[])
 				for (int j = 0; j < 9; j++)
 				{
 					if (j != 8)
+					{
 						fprintf(answer, "%d ", map[i][j]);
+					}
 					else
 						fprintf(answer, "%d", map[i][j]);
 				}
@@ -294,7 +301,7 @@ int main(int argc, char *argv[])
 
 
 
-	if (argc != 3)
+	/*if (argc != 3)
 		cout << "参数错误" << endl;
 	else
 	{
@@ -326,11 +333,11 @@ int main(int argc, char *argv[])
 			}
 			SolvingSudoku(path);
 		}
-	}
+	}*/
 	
 
-	/*char c[] = { "C:\\Users\\韩昌云\\Desktop\\新建文件夹\\problems.txt" };	
-	SolvingSudoku(c);*/
+	char c[] = { "C:\\Users\\韩昌云\\Desktop\\新建文件夹\\problems.txt" };	
+	SolvingSudoku(c);
 	/*GenerateSudoku(10000);*/
 
 	/*endTime = clock();
