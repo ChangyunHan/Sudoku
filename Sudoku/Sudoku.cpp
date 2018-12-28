@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #pragma warning(disable : 4996)
+#pragma warning(disable : 4700)
 
 #include <iostream>
 #include <cstdlib>
@@ -233,7 +234,9 @@ bool Solving(int count)
 
 void SolvingSudoku(char path[])
 {
-	FILE *question = fopen(path, "r");
+	FILE *question;
+	if ((question == fopen(path, "r")) == NULL)
+		cout << "Open file failed" << endl;
 	FILE *answer = fopen("sudoku.txt", "w+");
 	while (fscanf(question,"%d",&map[0][0])!=EOF)
 	{
