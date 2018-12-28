@@ -3,6 +3,8 @@ Sudoku.exe -c 1
 Sudoku.exe -c 100
 Sudoku.exe -c  10000
 Sudoku.exe -c 1000000
+Sudoku.exe -c abc
+Sudoku.exe -c qwerty
 Sudoku.exe -s aaa\ss\b
 Sudoku.exe -s nsnkafmlkm
 Sudoku.exe -s C:\Documents\problems.txt
