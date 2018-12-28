@@ -7,4 +7,4 @@ Sudoku.exe -c abc
 Sudoku.exe -c qwerty
 Sudoku.exe -s aaa\ss\b
 Sudoku.exe -s nsnkafmlkm
-Sudoku.exe -s C:\Documents\problems.txt
+Sudoku.exe -s D:\Documents\problems.txt

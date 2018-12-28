@@ -234,9 +234,9 @@ bool Solving(int count)
 
 void SolvingSudoku(char path[])
 {
-	FILE *question;
-	if ((question == fopen(path, "r")) == NULL)
-		cout << "Open file failed" << endl;
+	FILE *question = fopen(path, "r");
+	//if ((question == fopen(path, "r")) == NULL)
+		//cout << "Open file failed" << endl;
 	FILE *answer = fopen("sudoku.txt", "w+");
 	while (fscanf(question,"%d",&map[0][0])!=EOF)
 	{
@@ -297,9 +297,9 @@ void SolvingSudoku(char path[])
 
 int main(int argc, char *argv[])
 {
-	/*clock_t startTime, endTime;
-	startTime = clock();
-	srand((unsigned)time(NULL));*/
+	//clock_t startTime, endTime;
+	//startTime = clock();
+	//srand((unsigned)time(NULL));
 
 
 
@@ -343,8 +343,8 @@ int main(int argc, char *argv[])
 	SolvingSudoku(c);*/
 	/*GenerateSudoku(10000);*/
 
-	/*endTime = clock();
-	cout << (double)(endTime - startTime) / CLOCKS_PER_SEC << "s" << endl;*/
+	//endTime = clock();
+	//cout << (double)(endTime - startTime) / CLOCKS_PER_SEC << "s" << endl;
 
 
 }
